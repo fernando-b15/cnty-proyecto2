@@ -7,7 +7,6 @@ este simulador de lo clasico a lo cuantico es proyecto de 2 tercio del curso de 
 
 esta funcion me permite hallar la posicion de mi particula atraves de ciertos clicks de tiempo ,se le pasa una matriz de inicial ,tambien se le pasa un vector de estado inicial que va ir variando segun el numero de clicks de tiempo y por ultimo el numero de clicks de tiempo y ejecutando la funcion de dinamica clasica con el test1 se obtendrian las siguinetes respuestas:
 
-muestra acontinuacion:
 
 ### vector de estado
 ![imgen1](https://github.com/fernando-b15/Cnyt-lab1/blob/master/1.PNG)
@@ -19,13 +18,18 @@ muestra acontinuacion:
 
 esta funcion me permite hallar las probabilidades de posicion de  mi particula atraves de ciertos clicks de tiempo,se le pasa dos matrices iniciales ,tambien se le pasa dos vectores de probabilidades iniciales que se le va a ser producto tensor junto con las metrices y el vector probabilistico resultante  va ir variando segun el numero de clicks de tiempo y por ultimo el numero de clicks de tiempo y ejecutando la funcion dinamica probabilistica con el test2 se obtendrian las siguinetes respuestas:
 
-### vector de estado
+### vector probabilistico
+
 ![imgen3](https://github.com/fernando-b15/Cnyt-lab1/blob/master/3.PNG)
 
 ### diagrama de barras
+
 ![imgen4](https://github.com/fernando-b15/Cnyt-lab1/blob/master/4.PNG)
+
 # Test
+
 se realizaron las pruebas de la funcione con los siguientes parametros:
+
 ## Test1 dinamica clasica
 
 ### matriz inicial
