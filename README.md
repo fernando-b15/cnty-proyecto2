@@ -5,7 +5,8 @@ este simulador de lo clasico a lo cuantico es proyecto de 2 tercio del curso de 
 
 ## sistema de dinamico clasico
 
-esta funcion me permite hallar la posicion de mi particula atraves de ciertos clicks de tiempo como se 
+esta funcion me permite hallar la posicion de mi particula atraves de ciertos clicks de tiempo ,se le pasa una matriz de inicial ,tambien se le pasa un vector de estado inicial que va ir variando segun el numero de clicks de tiempo y por ultimo el numero de clicks de tiempo y ejecutando la funcion de dinamica clasica con el test1 se obtendrian las siguinetes respuestas:
+
 muestra acontinuacion:
 
 ### vector de estado
@@ -16,7 +17,7 @@ muestra acontinuacion:
 
 ## sistema dinamico probabilistico
 
-esta funcion me permite hallar la probabilidad de que mi particula este en cierta posicion atraves de ciertos clicks de tiempo como se muestra acontinuacion
+esta funcion me permite hallar las probabilidades de posicion de  mi particula atraves de ciertos clicks de tiempo,se le pasa dos matrices iniciales ,tambien se le pasa dos vectores de probabilidades iniciales que se le va a ser producto tensor junto con las metrices y el vector probabilistico resultante  va ir variando segun el numero de clicks de tiempo y por ultimo el numero de clicks de tiempo y ejecutando la funcion dinamica probabilistica con el test2 se obtendrian las siguinetes respuestas:
 
 ### vector de estado
 ![imgen3](https://github.com/fernando-b15/Cnyt-lab1/blob/master/3.PNG)
