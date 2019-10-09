@@ -25,7 +25,7 @@ esta funcion me permite hallar la probabilidad de que mi particula este en ciert
 ![imgen4](https://github.com/fernando-b15/Cnyt-lab1/blob/master/4.PNG)
 # Test
 se realizaron las pruebas de la funcione con los siguientes parametros:
-1. Test1 dinamica clasica
+## Test1 dinamica clasica
 
 ### matriz inicial
 
@@ -35,7 +35,7 @@ se realizaron las pruebas de la funcione con los siguientes parametros:
 
 ![imgen6](https://github.com/fernando-b15/Cnyt-lab1/blob/master/12.PNG)
 
-2. Test2 dinamica probabilistica
+## Test2 dinamica probabilistica
 
 ### matriz inicial 1
 
