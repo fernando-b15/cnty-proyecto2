@@ -47,56 +47,85 @@ def dinamicaprobabilistica(m1,m2,v1,v2,t):
      ax.set_xticklabels(nombres)
 
      plt.show()
+def valoresobservables(m,v):
+    vp=normaVectorImaginario(v)
+    
+    vxyz=multiplicacionEscalarVector(((1/vp),0),v)
+    
+    vfin=[]
+    for i in vxyz:
+        vfin.append([i])
+        
+    mz=productoMatricesImaginarias(m,vfin)
+
+    mz2=matrizAdjunta(mz)
+
+    mf=productoMatricesImaginarias(mz2,vfin)
+    print(mf)
+    my=mf[0][0][0]
+    mi=[[[my,0],[0,0],[0,0],[0,0]],[[0,0],[my,0],[0,0],[0,0]],[[0,0],[0,0],[my,0],[0,0]],[[0,0],[0,0],[0,0],[my,0]]]
+ 
+    for i1 in range(len(m)):
+        for j1 in range(len(m[0])):
+            m[i1][j1][0]=m[i1][j1][0]-mi[i1][j1][0]
+            
+    mat=productoMatricesImaginarias(m,m)
+    vfin3=matrizAdjunta(vfin)
+    matx=productoMatricesImaginarias(vfin3,mat)
+    matz=productoMatricesImaginarias(matx,vfin)
+    print(matz)
+    
 def main():
     ope=stdin.readline().strip()
-    if ope=="dinamica clasica":
-        num5=[[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[1,0]], #0
-     [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[1,0],[0,0],[0,0]], #1
-     [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[1,0],[0,0]], #2 
-     [[0,0],[0,0],[1,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]], #3
-     [[0,0],[0,0],[0,0],[1,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]], #4 
-     [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[1,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]], #5
-     [[0,0],[0,0],[0,0],[0,0],[0,0],[1,0],[0,0],[0,0],[0,0],[1,0],[0,0],[0,0],[0,0]], #6
-     [[0,0],[0,0],[0,0],[0,0],[1,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]], #7
-     [[0,0],[1,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]], #8
-     [[1,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]], #9
-     [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[1,0],[0,0],[0,0],[0,0],[0,0]], #10
-     [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[1,0],[0,0],[0,0],[0,0],[0,0],[0,0]], #11
-     [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]]  #12
-    ]
-        num4= [[[10,0]],  #0
-     [[4,0]],   #1
-     [[1,0]],   #2
-     [[7,0]],   #3
-     [[2,0]],   #4
-     [[2,0]],   #5
-     [[11,0]],  #6
-     [[0,0]],   #7
-     [[3,0]],   #8
-     [[1,0]],   #9
-     [[0,0]],   #10
-     [[5,0]],   #11
-     [[2,0]]    #12
-    ]
-
-        num3=25
-
-
-        dinamicaclasica(num5,num4,num3)
-    if ope=='dinamica probabilistica':
-        m1= [[[0,0],[0.2,0],[0.3,0],[0.5,0]],
-      [[0.3,0],[0.2,0],[0.1,0],[0.4,0]],
-      [[0.4,0],[0.3,0],[0.2,0],[0.1,0]],
-      [[0.3,0],[0.3,0],[0.4,0],[0,0]]
-     ]
-        m2=[[[0,0],[1/6,0],[5/6,0]], 
-      [[1/3,0],[1/2,0],[1/6,0]], 
-      [[2/3,0],[1/3,0],[0,0]] 
-     ]
-        v1=[[0.2,0],[0.1,0],[0.6,0],[0.1,0]]
-        v2=[[0.7,0],[0.15,0],[0.15,0]]
-        t=15
-        dinamicaprobabilistica(m1,m2,v1,v2,t)
+    if ope=="valores observables":
+        m=[[[0,0],[0,-1/2],[0,-1],[-7/2,0]],
+ [[0,1/2],[0,0],[7/2,0],[0,-1]],
+ [[0,1],[7/2,0],[0,0],[0,-1/2]],
+ [[-7/2,0],[0,1],[0,1/2],[0,0]]
+]
+        v=[[-2, 1],
+ [1, 0],
+ [0,-1],
+ [3,2]
+]
+        valoresobservables(m,v)
+    elif ope=="particula en recta":
+        v1=[[2, -1],
+         [-1.5, 2.5],
+         [-3.5, 5],
+         [-4, 6],
+         [-3.5, 2.5],
+         [0, 0],
+         [-3.5, 2.5],
+         [6, -4],
+         [0, 2.5],
+         [-1, 1]]       
+        print(particulaLineaRecta(v1))
+def normaImaginario(c1):
+    suma = 0
+    suma = (c1[0]**2) +(c1[1]**2)
+    return suma        
+     
+def particulaLineaRecta(v1):
+    probabilidad=[]
+    normaVectorCuadrado = (normaVectorImaginario(v1))**2
+   
+    for i in v1:
+        j =(normaImaginario(i))/normaVectorCuadrado
+        probabilidad.append(round(((normaImaginario(i))/normaVectorCuadrado),4))
+    
+    return probabilidad        
+def multiplicacionEscalarVector(c1,v1):
+    res = []
+    for i in range(len(v1)):
+        res.append(productoImaginarios(c1,v1[i]))
+    return res        
+def normaVectorImaginario(v1):
+    suma =0
+    for i in range(len(v1)):
+        for j in range(len(v1[0])):
+            suma += ((v1[i][j])**2)
+    return suma**(1/2)        
 def productoVectoresImaginarios(c1,c2):
     ini = (0,0)
     for i in range(len(c1)):
@@ -193,4 +222,41 @@ def complejoPorvector(c1,m1):
         
     print(matriz)
     return matriz
+def matrizConjugada(m1):
+    matriz=[]
+    for i in range(0,len(m1)):
+        vector=[]
+        for j in range(0,len(m1[0])):
+            vector.append((m1[i][j][0],m1[i][j][1]*-1))
+        matriz.append(vector)
+    return matriz
+
+
+def matrizAdjunta(m1):
+    matriz=matrizTranspuesta(m1)
+    matriz=matrizConjugada(matriz)
+    return matriz
+
+
+def productoMatricesImaginarias(m1,m2):
+    matriz = [[None] * len(m2[0]) for i in range(len(m1))]
+    for i in range(len(m1)):
+        for j in range(len(m2[0])):
+            columna = [row[j] for row in m2]
+            matriz[i][j] = productoVectoresImaginarios(m1[i],columna)
+    return matriz
+
+def accionMatrizSobreVector(v1,m1):
+    v = []
+    for i in range(len(m1)):    
+            v.append(productoVectoresImaginarios(v1,m1[i]))
+    return v
+def matrizTranspuesta(m1):
+    matriz=[]
+    for i in range(0,len(m1[0])):
+        columna = [row[i] for row in m1]
+        matriz.append(columna)
+    return matriz 
+        
+
 main()        
